@@ -166,7 +166,17 @@
         else{
             Class selectorClass = self.rowDescriptor.selectorControllerClass;
             UIViewController<XLFormRowDescriptorViewController> *selectorViewController = [[selectorClass alloc] init];
-            selectorViewController.rowDescriptor = self.rowDescriptor;
+            if ([selectorViewController conformsToProtocol:@protocol(XLFormRowDescriptorViewController)]){
+                selectorViewController.rowDescriptor = self.rowDescriptor;
+            }
+
+            NSMutableDictionary *selectorControllerConfig = self.rowDescriptor.selectorControllerConfig;
+            if (selectorControllerConfig) {
+                [selectorControllerConfig enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                    [selectorViewController setValue:obj forKey:key];
+                }];
+            }
+            
             selectorViewController.title = self.rowDescriptor.selectorTitle;
             
             if ([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeSelectorPopover]) {
