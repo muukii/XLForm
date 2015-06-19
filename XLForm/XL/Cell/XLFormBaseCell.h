@@ -35,6 +35,9 @@
 
 @property (nonatomic, weak) XLFormRowDescriptor * rowDescriptor;
 
+@property (nonatomic) NSNumber *imageViewLeftMargin;
+@property (nonatomic) NSNumber *textLabelLeftMargin;
+
 -(XLFormViewController *)formViewController;
 
 @end
