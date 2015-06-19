@@ -186,6 +186,19 @@
                 [controller.tableView deselectRowAtIndexPath:[controller.tableView indexPathForCell:self] animated:YES];
             }
             else {
+
+
+            	if ([selectorViewController conformsToProtocol:@protocol(XLFormRowDescriptorViewController)]){
+                	selectorViewController.rowDescriptor = self.rowDescriptor;
+	            }	
+
+    	        NSMutableDictionary *selectorControllerConfig = self.rowDescriptor.selectorControllerConfig;
+	            if (selectorControllerConfig) {
+	                [selectorControllerConfig enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+	                    [selectorViewController setValue:obj forKey:key];
+    	            }];
+        	    }
+
                 [controller.navigationController pushViewController:selectorViewController animated:YES];
             }
         }
