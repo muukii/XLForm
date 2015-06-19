@@ -84,7 +84,8 @@ typedef NS_ENUM(NSUInteger, XLFormPresentationMode) {
 
 @property id leftRightSelectorLeftOptionSelected;
 
-
+@property Class selectorControllerClass;
+@property (nonatomic) NSMutableDictionary *selectorControllerConfig;
 // =====================================
 // Deprecated
 // =====================================
