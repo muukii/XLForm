@@ -48,6 +48,22 @@
     [self update];
 }
 
+- (void)layoutSubviews {
+    
+    [super layoutSubviews];
+    
+    if (self.imageViewLeftMargin) {
+        CGRect frame = self.imageView.frame;
+        frame.origin.x = self.imageViewLeftMargin.floatValue;
+        self.imageView.frame = frame;
+    }
+    
+    if (self.textLabelLeftMargin) {
+        CGRect frame = self.textLabel.frame;
+        frame.origin.x = self.textLabelLeftMargin.floatValue;
+        self.textLabel.frame = frame;
+    }
+}
 
 - (void)configure
 {
