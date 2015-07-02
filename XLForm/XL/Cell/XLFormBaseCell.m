@@ -55,6 +55,11 @@
     if (self.imageViewLeftMargin) {
         CGRect frame = self.imageView.frame;
         frame.origin.x = self.imageViewLeftMargin.floatValue;
+        if (self.imageViewLayoutHeight) {
+            
+            CGFloat imageViewLayoutHeight = self.imageViewLayoutHeight.floatValue;
+            frame.size.height = imageViewLayoutHeight - (CGRectGetMinY(frame) * 2.0);
+        }
         self.imageView.frame = frame;
     }
     
