@@ -168,6 +168,10 @@
         datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     }
     
+    datePicker.calendar = self.dateFormatter.calendar;
+    datePicker.timeZone = self.dateFormatter.timeZone;
+    datePicker.locale = self.dateFormatter.locale;
+    
     if (self.minuteInterval)
         datePicker.minuteInterval = self.minuteInterval;
     
