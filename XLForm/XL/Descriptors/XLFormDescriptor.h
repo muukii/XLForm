@@ -28,7 +28,7 @@
 #import "XLFormDescriptorDelegate.h"
 #import <Foundation/Foundation.h>
 
-NSString * const XLFormErrorDomain;
+extern NSString * const XLFormErrorDomain;
 
 typedef NS_ENUM(NSInteger, XLFormErrorCode)
 {
